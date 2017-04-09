@@ -72,11 +72,12 @@ module.exports = {
                 test: /\.css$/,
                 loader: 'style-loader!css-loader'
             },
-            {
-                test: /\.scss$/,
-                exclude: /node_modules/,
-                loaders: ['style-loader', 'css-loader', 'sass-loader']
-            },
+
+            // {  // Used it when we use scss .. this project we use css
+            //     test: /\.scss$/,
+            //     exclude: /node_modules/,
+            //     loaders: ['style-loader', 'css-loader', 'sass-loader']
+            // },
             {
                 test: /\.html$/,
                 loader: 'raw-loader'

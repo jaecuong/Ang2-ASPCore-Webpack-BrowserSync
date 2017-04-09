@@ -1,10 +1,10 @@
 ﻿using System.Linq;
-using Angular2WebpackVisualStudio.Models;
-using Angular2WebpackVisualStudio.Repositories.Things;
+using TradingApp.Models;
+using TradingApp.Repositories.Things;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Angular2WebpackVisualStudio.Controller
+namespace TradingApp.Controller
 {
     [Route("api/[controller]")]
     public class ThingsController : Microsoft.AspNetCore.Mvc.Controller
@@ -19,7 +19,7 @@ namespace Angular2WebpackVisualStudio.Controller
         [HttpGet]
         public IActionResult Get()
         {
-            
+
             return Ok(_thingsRepository.GetAll());
         }
 

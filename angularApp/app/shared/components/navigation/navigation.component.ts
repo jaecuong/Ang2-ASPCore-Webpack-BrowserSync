@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import './navigation.component.css';
 
 @Component({
     selector: 'navigation',

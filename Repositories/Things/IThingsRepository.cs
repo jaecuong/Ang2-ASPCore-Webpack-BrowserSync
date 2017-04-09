@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using Angular2WebpackVisualStudio.Models;
+using TradingApp.Models;
 
-namespace Angular2WebpackVisualStudio.Repositories.Things
+namespace TradingApp.Repositories.Things
 {
     public interface IThingsRepository
     {

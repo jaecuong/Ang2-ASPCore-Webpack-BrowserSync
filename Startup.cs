@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Linq;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Angular2WebpackVisualStudio.Repositories.Things;
-using Angular2WebpackVisualStudio.Models;
+using TradingApp.Entities;
+using TradingApp.Repositories.Things;
 
-namespace Angular2WebpackVisualStudio
+namespace TradingApp
 {
     public class Startup
     {
@@ -17,7 +17,7 @@ namespace Angular2WebpackVisualStudio
         {
             var builder = new ConfigurationBuilder()
                 .SetBasePath(env.ContentRootPath)
-                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
                 .AddEnvironmentVariables();
             Configuration = builder.Build();
@@ -29,20 +29,24 @@ namespace Angular2WebpackVisualStudio
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddCors(options =>
-            {
-                options.AddPolicy("AllowAllOrigins",
+           {
+               options.AddPolicy("AllowAllOrigins",
                     builder =>
                     {
                         builder
-                            .AllowAnyOrigin()
-                            .AllowAnyHeader()
-                            .AllowAnyMethod();
+                             .AllowAnyOrigin()
+                             .AllowAnyHeader()
+                             .AllowAnyMethod();
                     });
-            });
+           });
 
             // Add framework services.
             services.AddSingleton<IThingsRepository, ThingsRepository>();
             services.AddMvc();
+
+            // Entity Framework
+            var connectionString = @"Server=.;Database=Trading;Trusted_Connection=True;";
+            services.AddDbContext<TradingContext>(options => options.UseSqlServer(connectionString));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

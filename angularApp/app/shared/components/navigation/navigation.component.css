@@ -1,0 +1,48 @@
+/* Navbar */
+.navbar-inverse 
+.navbar-brand {
+    color: #3399ff;
+    font-size: 22px;
+    font-weight: bold;
+    background-color: #333333;
+}
+
+.navbar-inverse{    
+    background-color: #333333;       
+    border: 0px;
+}
+.navbar.navbar-inverse .navbar-nav>li>a{
+    color: white;
+}
+.navbar.navbar-inverse .navbar-nav>li>a:hover,
+.navbar.navbar-inverse .navbar-nav>li>a:focus{
+    background-color: #333333;
+    color: white;
+    border-bottom: 3px solid #2d89ef;    
+}
+
+.navbar-inverse .navbar-nav>.active>a,
+.navbar-inverse .navbar-nav>.active>a:hover,
+.navbar-inverse .navbar-nav>.active>a:focus {
+    /*background-color: white;*/
+    background-color: #333333;
+    color: white;
+    border-bottom: 3px solid #2d89ef;
+}
+
+
+
+/* Navbar Toggle Icon */
+.navbar-inverse .navbar-toggle,
+.navbar-inverse .navbar-toggle:hover,
+.navbar-inverse .navbar-toggle:focus {
+    background-color: #2d89ef;
+}
+
+
+.footer{
+    background-color: #333333;
+    color: #3399ff;
+    padding-top: 15px;
+    min-width: 960px;
+}
